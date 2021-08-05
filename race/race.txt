@@ -1,0 +1,71 @@
+==================
+WARNING: DATA RACE
+Write at 0x00c00012e078 by goroutine 12:
+  main.main.func1()
+      E:/GB/GB.202.Go.2/hw/race/main.go:30 +0x1a4
+
+Previous write at 0x00c00012e078 by goroutine 14:
+  main.main.func1()
+      E:/GB/GB.202.Go.2/hw/race/main.go:30 +0x1a4
+
+Goroutine 12 (running) created at:
+  main.main()
+      E:/GB/GB.202.Go.2/hw/race/main.go:20 +0xcb
+
+Goroutine 14 (running) created at:
+  main.main()
+      E:/GB/GB.202.Go.2/hw/race/main.go:20 +0xcb
+==================
+Found 1 data race(s)
+exit status 66
+PS E:\GB\GB.202.Go.2\hw\race> go run -race main.go
+6 mt.Lock()
+10 mt.Lock()
+8 mt.Lock()
+9 mt.Lock()
+==================
+WARNING: DATA RACE
+Write at 0x00c00012e070 by goroutine 16:
+  main.main.func1()
+      E:/GB/GB.202.Go.2/hw/race/main.go:30 +0x1a4
+
+Previous write at 0x00c00012e070 by goroutine 12:
+  main.main.func1()
+      E:/GB/GB.202.Go.2/hw/race/main.go:30 +0x1a4
+
+Goroutine 16 (running) created at:
+  main.main()
+      E:/GB/GB.202.Go.2/hw/race/main.go:20 +0xcb
+
+Goroutine 12 (running) created at:
+  main.main()
+      E:/GB/GB.202.Go.2/hw/race/main.go:20 +0xcb
+==================
+2.5139104621292734e+08
+6 mt.Unlock()
+9.516585938236847e+08
+8 mt.Unlock()
+8.706830673174186e+08
+9 mt.Unlock()
+9.999985000003749e+08
+10 mt.Unlock()
+2 mt.Lock()
+1 mt.Lock()
+7 mt.Lock()
+4 mt.Lock()
+2.742360668611922e+08
+2 mt.Unlock()
+5 mt.Lock()
+3 mt.Lock()
+9.939940280541084e+08
+4 mt.Unlock()
+9.672563424114234e+08
+7 mt.Unlock()
+9.999985000003749e+08
+5 mt.Unlock()
+5.535169735356488e+08
+1 mt.Unlock()
+9.999985000003749e+08
+3 mt.Unlock()
+Found 1 data race(s)
+exit status 66
